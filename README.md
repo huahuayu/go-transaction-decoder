@@ -1,6 +1,6 @@
 # Go transaction decoder
 
-This is a go ethereum transaction decoder, it is used to decode `input` field like below example.
+This is a go ethereum transaction decoder, it is used for decode `input` field like below example.
 
 ```json
 {
@@ -44,6 +44,13 @@ output:
 2). From the 3rd char to 9th char(include) of the `input` field is the function name hash. Without abi, in theory, you can't get the function name, but with abi, by looping the function name, do hash and compare, you can tell the function.
 
 3). From 10th char to the end is the actual payload, in order to decode, you need define the input struct to map the data.
+
+## Todos
+
+- decode any input data for any given transaction hash without 1.) hardcode the abi 2.) define the function input struct in advance, which means: 
+  - get the abi by transaction hash first, if the contract is published
+  - identfy the function name
+  - decode the function input
 
 ## Other decoder
 
